@@ -1,0 +1,36 @@
+@import url("./menu.css");
+@import url("./menucategory.css");
+@import url("./dish.css");
+
+html,body{
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+body{
+  height: 100%;
+  flex: 1;
+}
+
+#wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container{
+  width: 100%;
+  max-width: 1300px;
+}
+@media (min-width: 750px){
+  .container{
+    width: 95%;
+  }
+}

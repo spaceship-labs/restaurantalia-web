@@ -1,0 +1,29 @@
+.dish{
+  padding: 5px 20px;
+}
+.dish h4{
+  font-size: 1em;
+  margin: 0;
+}
+
+.dish p{
+  margin: 0;
+}
+
+.dish .details{
+  display: flex;
+  align-items: flex-end;
+}
+.dish .details .description{
+  font-size: 1em;
+}
+.dish .details .price p{
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.dish .details .fill{
+  border-bottom: 1px dotted;
+  flex: 1;
+  min-width: 20px;
+}
