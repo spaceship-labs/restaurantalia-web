@@ -18,11 +18,13 @@
 
   .dish h4 {
     font-size: 1em;
+    font-weight: 400;
     margin: 0;
   }
 
   .dish p {
     margin: 0;
+    font-weight: 300;
   }
 
   .dish .details {
@@ -36,7 +38,7 @@
 
   .dish .details .price p {
     font-size: 1em;
-    font-weight: bold;
+    font-weight: 600;
   }
 
   .dish .details .fill {

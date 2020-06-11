@@ -6,7 +6,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
 </svelte:head>
 
-<section class="menu light-menu">
+<section class="menu dark-menu">
   <div class="container">
     <div class="logo">
       <img alt="restaurant name" src="../images/logo_black.PNG" />
@@ -14,20 +14,14 @@
     <h1>MENU</h1>
     <img class="title-image" alt="restaurant name" src="../images/dish1.PNG" />
     <div class="menu-content">
-      <div class="column">
-        <Category />
-        <Category imageposition="image-position-left" imageurl="../images/dish3.PNG" />
-        <Category />
-      </div>
-      <div class="column">
-        <Category imageposition="image-position-top" imageurl="../images/dish1.PNG" />
-        <Category imageurl="../images/dish1.PNG" />
-      </div>
-      <div class="column">
-        <Category imageposition="image-position-top2" imageurl="../images/dish2.PNG" />
-        <Category />
-        <Category />
-      </div>
+      <Category />
+      <Category />
+      <Category />
+      <Category />
+      <Category />
+      <Category />
+      <Category />
+      <Category />
     </div>
   </div>
 </section>

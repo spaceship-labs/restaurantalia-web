@@ -1,11 +1,19 @@
 <script>
   import Dish from "../dish/dish.svelte"
+  export let imageposition = ""
+  export let imageurl = ""
 </script>
-<article class="menu-category ">
+<article class="menu-category {imageposition}">
+  {#if imageurl !== "" && imageposition === "image-position-top"}
+    <img alt="" src={imageurl} />
+  {/if}
   <h2>Appetizers</h2>
   <Dish />
   <Dish />
   <Dish />
+  {#if imageurl !== "" && imageposition !== "image-position-top"}
+      <img alt="" src={imageurl} />
+    {/if}
 </article>
 
 <style>
