@@ -1,3 +1,13 @@
+<script>
+  import Nav from "../components/Nav.svelte"
+  import ContactForm from "../components/contactform.svelte"
+
+  let visible = false;
+  function toggleVisible() {
+    visible = !visible
+  }
+
+</script>
 <svelte:head>
   <title>Restaurantalia</title>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,700;1,400&display=swap"
@@ -14,7 +24,7 @@
 </div>
 <section>
   <div class="container">
-    <a href="mailto:admin@spaceshiplabs.com" class="button">Quiero mi menú</a>
+    <a on:click={toggleVisible} class="button">Quiero mi menú</a>
     <br />
     <h2>PRECIO DE LANZAMIENTO</h2>
     <p class="small-price"><span>$5,800</span> mxn anual</p>
@@ -24,18 +34,12 @@
   </div>
   <img class="hand" alt="" src="images/hand.png" />
 </section>
-<nav>
-  <a href="/demo">Demo</a>
-  <a href="/demodark">Demo Dark</a>
-</nav>
+<Nav />
+{#if visible}
+<ContactForm toggle={toggleVisible} />
+{/if}
 
 <style>
-  nav {
-    visibility: hidden;
-    opacity: 0;
-    display: none;
-  }
-
   :global(#sapper) {
     background-color: #eb796e;
   }
