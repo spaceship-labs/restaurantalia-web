@@ -46,21 +46,9 @@
     color: #fff;
   }
 
-  .light-menu {
-    background-color: #fff3e2;
-    background: #fff3e2 url('../images/bg_phone.JPG') no-repeat top center;
-    background-size: cover;
-    background-attachment: fixed;
-    color: #735c4a;
-  }
-
   .menu .logo {
     text-align: center;
     margin: 0px 10%;
-  }
-
-  .menu.light-menu .logo {
-    text-align: left;
   }
 
   .menu .logo img {
@@ -73,12 +61,6 @@
     text-align: center;
     font-size: 2em;
     margin: 15px 10% 25px;
-  }
-
-  .menu.light-menu h1 {
-    text-align: left;
-    position: relative;
-    z-index: 1;
   }
 
   .menu-content {
@@ -108,17 +90,6 @@
       display: none;
     }
 
-    .menu.light-menu {
-      background-image: url('../images/bg_tablet.JPG');
-    }
-
-    .menu.light-menu .menu-content {
-      padding: 15px 0px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-
     .menu.dark-menu .menu-content {
       padding: 30px;
       column-count: 2;
@@ -128,36 +99,15 @@
     align-items: start;
     grid-column-gap: 70px; */
     }
-
-    .column {
-      min-width: 40%;
-      flex: 1 0 40%;
-      padding: 0 30px;
-      box-sizing: border-box;
-    }
   }
 
   @media (min-width: 1100px) {
-    .menu.light-menu {
-      background-image: url('../images/bg_desk.JPG');
-    }
-
-    .menu.light-menu .logo,
-    .menu.light-menu h1 {
-      text-align: center;
-    }
 
     .menu.dark-menu .menu-content {
       column-count: 3;
       column-gap: 60px;
       /* grid-template-columns: repeat(3, minmax(300px, 1fr));
     grid-column-gap: 60px; */
-    }
-
-    .column {
-      min-width: 30%;
-      flex: 1 0 30%;
-      max-width: 30%;
     }
   }
 

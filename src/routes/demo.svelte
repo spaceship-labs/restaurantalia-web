@@ -47,11 +47,6 @@
     flex: 1;
   }
 
-  .dark-menu {
-    background-color: #000;
-    color: #fff;
-  }
-
   .light-menu {
     background-color: #fff3e2;
     background: #fff3e2 url('../images/bg_phone.JPG') no-repeat top center;
@@ -93,10 +88,6 @@
   column-rule-style: none; */
   }
 
-  .menu.dark-menu .menu-content {
-    border-top: 1px solid;
-  }
-
   .title-image {
     position: absolute;
     top: -60px;
@@ -125,16 +116,6 @@
       justify-content: space-between;
     }
 
-    .menu.dark-menu .menu-content {
-      padding: 30px;
-      column-count: 2;
-      column-gap: 20px;
-      /* display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
-    align-items: start;
-    grid-column-gap: 70px; */
-    }
-
     .column {
       min-width: 40%;
       flex: 1 0 40%;
@@ -151,13 +132,6 @@
     .menu.light-menu .logo,
     .menu.light-menu h1 {
       text-align: center;
-    }
-
-    .menu.dark-menu .menu-content {
-      column-count: 3;
-      column-gap: 60px;
-      /* grid-template-columns: repeat(3, minmax(300px, 1fr));
-    grid-column-gap: 60px; */
     }
 
     .column {

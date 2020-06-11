@@ -24,8 +24,18 @@
   </div>
   <img class="hand" alt="" src="images/hand.png" />
 </section>
+<nav>
+  <a href="/demo">Demo</a>
+  <a href="/demodark">Demo Dark</a>
+</nav>
 
 <style>
+  nav {
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+  }
+
   :global(#sapper) {
     background-color: #eb796e;
   }
@@ -175,7 +185,7 @@
       top: 45%;
     }
 
-    html {
+    :global(html) {
       font-size: 1.2em;
     }
   }
