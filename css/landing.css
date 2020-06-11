@@ -4,10 +4,15 @@ html,body{
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  font-size: 1em;
 }
 body{
   height: 100%;
   flex: 1;
+}
+
+html,body,span,a,button,div,h1,h2{
+  font-family: 'Ubuntu', sans-serif;
 }
 
 #wrapper{
@@ -19,6 +24,7 @@ body{
   position: relative;
   width: 100%;
   background-color: #eb796e;
+  overflow: hidden;
 }
 
 .lines{
@@ -48,6 +54,25 @@ body{
   z-index: 1;
 }
 
+.dots{
+  position: absolute;
+  top: 10px;
+  z-index: 0;
+}
+
+.dots.dotsbig{
+  width: 304px;
+  height: 318px;
+  background: transparent url('../images/dots_big.PNG') no-repeat center;
+  right: 80%;
+}
+.dots.dotssmall{
+  width: 140px;
+  height: 104px;
+  background: transparent url('../images/dots_small.PNG') no-repeat center;
+  left: 90%;
+}
+
 .header img{
   display: block;
   margin: 0 auto;
@@ -72,7 +97,8 @@ section{
 
 .button{
   display: inline-block;
-  font-size: 1.7em;
+  font-size: 2.4em;
+  font-weight: bold;
   padding: 15px 30px;
   background-color: #eb796e;
   color: #fff;
@@ -80,6 +106,7 @@ section{
   transition: all .3s;
   cursor: pointer;
   text-decoration: none;
+  font-family: 'Amatic SC', cursive;
 }
 .button:hover{
   color: #eb796e;
@@ -87,8 +114,14 @@ section{
 }
 
 h2{
-  font-size: 2.1em;
+  font-size: 3em;
   color: #f5c69c;
+  margin-bottom: 0;
+  font-weight: bold;
+  font-family: 'Amatic SC', cursive;
+}
+.small-price{
+  margin: 20px 0;
 }
 .small-price span{
   font-size: 1.5em;
@@ -97,10 +130,20 @@ h2{
 }
 .big-price{
   font-size: 1.1em;
+  margin-top: 0;
+  font-weight: normal;
 }
 .big-price span{
   font-size: 2em;
 }
+.small-text{
+  font-size: .8em;
+  margin: 10px 0;
+}
+
+.hand{
+    max-width: 50%;
+  }
 
 @media (min-width: 650px){
   .header{
@@ -112,29 +155,37 @@ h2{
   .lines-r{
     top: 45%;
   }
-  .button{
-    font-size: 2em;
-  }
-  h2{
-    font-size: 2.8em;
-  }
-  .small-price{
+  html{
     font-size: 1.2em;
-  }
-  .small-price span{
-    font-size: 2em;
-  }
-  .big-price{
-    font-size: 1.5em;
-  }
-  .big-price span{
-    font-size: 2.4em;
   }
 }
 @media (min-width: 1100px){
-  section > img{
+  html{
+    font-size: 1.4em;
+  }
+  .hand{
     position: absolute;
-    left: 0px;
+    left: 3%;
     bottom: 0px;
+    max-width: 30%;
+  }
+}
+@media (min-width: 1500px){
+  .header{
+    max-width: 900px;
+  }
+  .header img{
+    width: 400px;
+  }
+  .hand{
+    left: 5%;
+  }
+}
+@media (min-width: 2000px){
+  html{
+    font-size: 1.6em;
+  }
+  .hand{
+    max-width: 30%;
   }
 }
