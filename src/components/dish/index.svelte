@@ -2,14 +2,14 @@
   export let dish
 </script>
 <div class="dish">
-  <h4>{dish.Nombre}</h4>
+  <h4>{dish.nombre}</h4>
   <div class="details">
     <div class="description">
-      <p>{dish.Descripcion||""}</p>
+      <p>{dish.descripcion||""}</p>
     </div>
     <div class="fill"></div>
     <div class="price">
-      <p>${dish.Precio}</p>
+      <p>${dish.precio}</p>
     </div>
   </div>
 </div><!-- dish end -->

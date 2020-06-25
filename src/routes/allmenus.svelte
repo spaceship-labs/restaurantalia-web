@@ -11,7 +11,7 @@
   // console.log('menus', menus)
   $: navMenus = menus.map(menu => ({
     link: `/${menu.restaurante.slug}/${menu.slug}`,
-    title: menu.Nombre
+    title: menu.nombre
   }))
 </script>
 
