@@ -36,11 +36,11 @@ export const getCategoriesByMenu = async (menuId) => {
 export const getPlatillosByCategoria = async (cats) => {
   const params = cats.reduce((result, cat) => {
     const join = result === "" ? '' : '&'
-    let newResult = `${join}categoria_in=${cat.id}`
+    let newResult = `${join}categorias_contains=${cat.id}`
     return result + newResult
   }, "")
   // console.log('PARAMS', params)
   const { data } = await $axios.get(`/platillos?${params}`);
-
+  
   return data
 }

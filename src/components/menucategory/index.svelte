@@ -10,7 +10,7 @@
   {#if imageurl !== "" && imageposition === "image-position-top"}
     <img alt="" src={imageurl} />
   {/if}
-  <h2>{category.Nombre}</h2>
+  <h2>{category.nombre}</h2>
   {#each category.dishes as dish}
     <Dish dish={dish} />
   {/each}

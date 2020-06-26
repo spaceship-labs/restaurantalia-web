@@ -14,8 +14,10 @@
       return result
     }, {})
     for (let dish of platillos) {
-      const { categoria, ...newDish } = dish
-      categories[categoria.id].dishes.push(newDish)
+      const { categorias, ...newDish } = dish
+      for(let categoria of categorias){
+        categories[categoria.id].dishes.push(newDish)
+      }
     }
     return { menu, categories, platillos, uploadsUrl };
   }
@@ -30,10 +32,11 @@
   function getImageUrl(image) {
     return `${uploadsUrl}${image.url}`
   }
+  const { template } = menu.menus_template
 </script>
 
-{#if menu.template === "brown_4_images"}
+{#if template === 1}
   <Brown4Images getImageUrl={getImageUrl} menu={menu} categories={categories} />
-  {:else}
-  <p>algo</p>
+{:else if template === 2}
+  <DarkTemplate getImageUrl={getImageUrl} menu={menu} categories={categories} />
 {/if}

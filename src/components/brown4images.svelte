@@ -12,15 +12,15 @@
   }, [[], [], []])
 </script>
 <svelte:head>
-  <title>{menu.Nombre} | Restaurantalia</title>
+  <title>{menu.nombre} | Restaurantalia</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
 </svelte:head>
 
 <section class="menu light-menu">
   <div class="container">
-    {#if menu.Logo}
+    {#if menu.menus_template.logo}
     <div class="logo">
-      <img alt="restaurant name" src={getImageUrl(menu.Logo)} />
+      <img alt="restaurant name" src={getImageUrl(menu.menus_template.logo)} />
     </div>
     {/if}
     <h1>MENU</h1>
