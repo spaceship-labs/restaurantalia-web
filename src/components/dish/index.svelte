@@ -49,4 +49,18 @@
     flex: 1;
     min-width: 20px;
   }
+   @media(min-width:1200px){
+    .dish .details .fill {
+      border-bottom: 2px dotted;
+      flex: 1;
+      min-width: 20px;
+    }
+  }
+  @media(min-width:1500px){
+    .dish .details .fill {
+      border-bottom: 3px dotted;
+      flex: 1;
+      min-width: 20px;
+    }
+  }
 </style>

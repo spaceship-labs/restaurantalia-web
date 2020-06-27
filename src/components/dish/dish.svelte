@@ -1,12 +1,15 @@
+<script>
+  export let dish
+</script>
 <div class="dish">
-  <h4>Sample dish number one</h4>
+  <h4>{dish.nombre}</h4>
   <div class="details">
     <div class="description">
-      <p>Description of the dish</p>
+      <p>{dish.descripcion||""}</p>
     </div>
     <div class="fill"></div>
     <div class="price">
-      <p>$17.50</p>
+      <p>${dish.precio}</p>
     </div>
   </div>
 </div><!-- dish end -->
@@ -45,5 +48,19 @@
     border-bottom: 1px dotted;
     flex: 1;
     min-width: 20px;
+  }
+  @media(min-width:1200px){
+    .dish .details .fill {
+      border-bottom: 2px dotted;
+      flex: 1;
+      min-width: 20px;
+    }
+  }
+  @media(min-width:1500px){
+    .dish .details .fill {
+      border-bottom: 3px dotted;
+      flex: 1;
+      min-width: 20px;
+    }
   }
 </style>
