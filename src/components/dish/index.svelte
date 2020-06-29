@@ -44,6 +44,7 @@
   }
   span {
     background-color:#fff3e2;    
+    padding: 0 3px;  
   }
   .dish .details .price p {
     font-size: 1em;

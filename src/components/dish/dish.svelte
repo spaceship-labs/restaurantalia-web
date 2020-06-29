@@ -31,7 +31,8 @@
     min-width: 20px;
   }
   span {
-    background-color:#000;    
+    background-color:#000;
+    padding: 0 3px;  
   }
   .dish p {
     margin: 0;
