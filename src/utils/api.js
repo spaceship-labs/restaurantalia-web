@@ -36,7 +36,7 @@ export const getCategoriesByMenu = async (menuId) => {
 export const getPlatillosByCategoria = async (cats) => {
   const params = cats.reduce((result, cat) => {
     const join = result === "" ? '' : '&'
-    let newResult = `${join}categorias_contains=${cat.id}`
+    let newResult = `${join}categorias.id=${cat.id}`
     return result + newResult
   }, "")
   // console.log('PARAMS', params)
