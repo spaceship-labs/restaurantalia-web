@@ -1,28 +1,28 @@
 <script>
-  import Category from "./menucategory/category.svelte"
+  import Category from "./menucategory/whitecategory.svelte"
   export let menu
   export let categories
   export let getImageUrl
 
   let columns = Object.keys(categories).reduce((cols, cat, i) => {
-    const c = i % 3
+    const c = i % 2
     cols[c].push(categories[cat])
     return cols
-  }, [[], [], []])
+  }, [[], []])
 </script>
 <svelte:head>
   <title>{menu.nombre} | Restaurantalia</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
 </svelte:head>
 
-<section class="menu dark-menu">
+<section class="menu white-menu">
   <div class="container">
     {#if menu.menus_template.logo}
     <div class="logo">
       <img alt="restaurant name" src="{getImageUrl(menu.menus_template.logo)}" />
     </div>
     {/if}
-    <h1>MENU</h1>
+    <h1>MENÚ</h1>
    <div class="menu-content">
       {#each columns as column,i}
         <div class="column">
@@ -39,25 +39,27 @@
   :global(html, body, span, a, button, div, h1, h2) {
     font-family: 'Oswald', sans-serif;
   }
-
+  .container{
+    background-color: #F0EFED;
+  }
   .menu {
     color: #000;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 80px 0;
+    padding: 40px 0;
     flex: 1;
   }
 
-  .dark-menu {
+  .white-menu {
     background-color: #000;
-    color: #fff;
+    color: #000;
   }
 
   .menu .logo {
     text-align: center;
-    margin: 0px 10%;
+    margin: 20px 10%;
   }
 
   .menu .logo img {
@@ -71,13 +73,16 @@
     font-size: 2em;
     margin: 15px 10% 25px;
   }
+  .menu h1:before, .menu h1:after{
+    content:'●●●'
+  }
+
 
   .menu-content {
     padding: 15px 25px;
   }
 
-  .menu.dark-menu .menu-content {
-    border-top: 1px solid;
+  .menu.white-menu .menu-content {
     padding: 15px 0px;
     display: flex;
     flex-wrap: wrap;
@@ -91,6 +96,11 @@
     max-width: 300px;
     z-index: 0;
   }
+  .column {
+    min-width: 100%;
+    flex: 1 0 100%;
+    box-sizing: border-box;
+  }
 
   @media (min-width: 750px) {
     .menu {
@@ -101,30 +111,28 @@
       display: none;
     }
 
-    .menu.dark-menu .menu-content {
+    .menu.white-menu .menu-content {
       padding: 15px 0px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
     }
     .column {
-      min-width: 40%;
-      flex: 1 0 40%;
-      padding: 0 30px;
+      min-width: 50%;
+      flex: 1 0 50%;
       box-sizing: border-box;
     }
+    .column:nth-child(1){
+      border-right: 2px solid #000;
+    }
+
   }
 
   @media (min-width: 1100px) {
 
-    .menu.dark-menu .menu-content {
+    .menu.white-menu .menu-content {
       column-count: 3;
       column-gap: 60px;
-    }
-    .column {
-      min-width: 30%;
-      flex: 1 0 30%;
-      max-width: 30%;
     }
   }
 
