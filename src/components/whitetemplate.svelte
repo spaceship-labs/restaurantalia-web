@@ -22,8 +22,10 @@
       <img alt="restaurant name" src="{getImageUrl(menu.menus_template.logo)}" />
     </div>
     {/if}
-    <h1>MENÚ</h1>
-   <div class="menu-content">
+    <div class="separator">
+      <h1>MENÚ</h1>
+    </div>
+    <div class="menu-content">
       {#each columns as column,i}
         <div class="column">
           {#each column as category,j}
@@ -68,22 +70,27 @@
     z-index: 1;
   }
 
-  .menu h1 {
+  .menu .separator h1 {
     text-align: center;
-    font-size: 2em;
-    margin: 15px 10% 25px;
+    font-size: 1.5em;
+    margin: 15px 10% 0px 10%;
   }
-  .menu h1:before, .menu h1:after{
+  .menu .separator h1:before, .menu h1:after{
     content:'●●●'
   }
 
+  .separator{
+    border-top: solid 2px #000;
+    margin: 10px 2%;
+  }
 
   .menu-content {
     padding: 15px 25px;
+    margin: 0 2%;
   }
 
   .menu.white-menu .menu-content {
-    padding: 15px 0px;
+    padding: 0px 0px 15px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -110,9 +117,14 @@
     .title-image {
       display: none;
     }
+    .menu .separator h1 {
+    text-align: center;
+    font-size: 2em;
+    margin: 15px 10% 0px 10%;
+  }
 
     .menu.white-menu .menu-content {
-      padding: 15px 0px;
+      padding: 0px 0px 15px 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
