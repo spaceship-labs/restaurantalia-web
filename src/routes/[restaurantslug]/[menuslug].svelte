@@ -26,6 +26,7 @@
   import Brown4Images from "../../components/brown4images.svelte"
   import DarkTemplate from "../../components/darktemplate.svelte"
   import WhiteTemplate from "../../components/whitetemplate.svelte"
+  import RedTemplate from "../../components/redtemplate.svelte"
 
   export let menu;
   export let categories
@@ -40,6 +41,8 @@
   <Brown4Images getImageUrl={getImageUrl} menu={menu} categories={categories} />
 {:else if template === 2}
   <DarkTemplate getImageUrl={getImageUrl} menu={menu} categories={categories} />
-{:else}
+{:else if template === 3}
   <WhiteTemplate getImageUrl={getImageUrl} menu={menu} categories={categories} />
+{:else}
+  <RedTemplate getImageUrl={getImageUrl} menu={menu} categories={categories} />
 {/if}
