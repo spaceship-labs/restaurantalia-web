@@ -1,25 +1,8 @@
 <script context="module">
-  import { getMenuSingle, getPlatillosByCategoria, uploadsUrl } from "../../utils/api.js"
+  import { uploadsUrl,fetchData } from "../../utils/api.js"
   export async function preload({ params }) {
-    let { restaurantslug, menuslug } = params;
-    //pide el menu actual y los platillos con las categorias que vienen en el menu
-    const [menu] = await getMenuSingle(menuslug)
-    const platillos = await getPlatillosByCategoria(menu.categorias)
-    const categoriesArray = menu.categorias.sort((a, b) => {
-      return a.Orden - b.Orden
-    })
-    //crea un objecto de categorias y le agrega los platillos que le corresponden
-    const categories = categoriesArray.reduce((result, cat) => {
-      result[cat.id] = { ...cat, dishes: [] }
-      return result
-    }, {})
-    for (let dish of platillos) {
-      const { categorias, ...newDish } = dish
-      for(let categoria of categorias){
-        categories[categoria.id].dishes.push(newDish)
-      }
-    }
-    return { menu, categories, platillos, uploadsUrl };
+    let { menuslug } = params;
+    return await fetchData(menuslug)
   }
 </script>
 <script>

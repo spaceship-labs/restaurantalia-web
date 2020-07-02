@@ -1,7 +1,7 @@
 <script context="module">
-  import { getMenus } from "../utils/api.js"
+  import { getRestaurants } from "../utils/api.js"
   export async function preload() {
-    const menus = await getMenus()
+    const menus = await getRestaurants()
     return { menus }
   }
 </script>
@@ -10,8 +10,8 @@
   export let menus
   // console.log('menus', menus)
   $: navMenus = menus.map(menu => ({
-    link: `/${menu.restaurante.slug}/${menu.slug}`,
-    title: menu.nombre
+    link: `/${menu.slug}`,
+    title: menu.slug
   }))
 </script>
 
