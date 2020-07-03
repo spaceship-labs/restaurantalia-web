@@ -1,23 +1,27 @@
 <script context="module">
   import { getRestaurants } from "../utils/api.js"
   export async function preload() {
-    const menus = await getRestaurants()
-    return { menus }
+    const restaurants = await getRestaurants()
+    return { restaurants }
   }
 </script>
 
 <script>
-  export let menus
-  // console.log('menus', menus)
-  $: navMenus = menus.map(menu => ({
+  export let restaurants
+  console.log('menus', restaurants)
+  $: navRestaurants = restaurants.map(menu => ({
     link: `/${menu.slug}`,
-    title: menu.slug
+    title: menu.slug,
+    menus: menu.menus
   }))
 </script>
 
 <nav>
-  {#each navMenus as menu}
-    <a href={menu.link}>{menu.title}</a>
+  {#each navRestaurants as restaurant}
+    <!-- <a href={restaurant.link}>{restaurant.title}</a> -->
+    {#each restaurant.menus as menu}
+      <a href="{restaurant.link}/{menu.slug}">{restaurant.title} - {menu.nombre}</a>
+    {/each}
   {/each}
 </nav>
 

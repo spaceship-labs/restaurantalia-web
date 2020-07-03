@@ -1,5 +1,5 @@
 <script>
-  import Category from "../components/menucategory/category.svelte"
+  import Category from "../components/menucategory/demo.svelte"
 </script>
 <svelte:head>
   <title>Demo | Restaurantalia</title>
