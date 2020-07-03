@@ -16,7 +16,7 @@ export const getImageUrl = (image) => {
 }
 
 export const getMenus = async () => {
-  const { data } = await $axios.get('/menus');
+  const { data } = await $axios.get('/menus?_limit=-1');
 
   return data
 }
@@ -28,7 +28,7 @@ export const getMenuSingle = async (slug) => {
 }
 
 export const getCategoriesByMenu = async (menuId) => {
-  const { data } = await $axios.get(`/categorias?menu=${menuId}`);
+  const { data } = await $axios.get(`/categorias?menu=${menuId}&_limit=-1`);
 
   return data
 }
@@ -40,7 +40,7 @@ export const getPlatillosByCategoria = async (cats) => {
     return result + newResult
   }, "")
   // console.log('PARAMS', params)
-  const { data } = await $axios.get(`/platillos?${params}`);
+  const { data } = await $axios.get(`/platillos?${params}&_limit=-1`);
   
   return data
 }

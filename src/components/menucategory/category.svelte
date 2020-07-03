@@ -2,12 +2,14 @@
   import Dish from "../dish/dish.svelte"
   export let category
 </script>
+{#if category.dishes.length>0}
 <article class="menu-category">
   <h2>{category.nombre}</h2>
   {#each category.dishes as dish}
     <Dish dish={dish} />
   {/each}
 </article>
+{/if}
 
 <style>
   .menu-category {
