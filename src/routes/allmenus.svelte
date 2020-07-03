@@ -8,7 +8,7 @@
 
 <script>
   export let restaurants
-  console.log('menus', restaurants)
+  // console.log('menus', restaurants)
   $: navRestaurants = restaurants.map(menu => ({
     link: `/${menu.slug}`,
     title: menu.slug,
@@ -20,7 +20,7 @@
   {#each navRestaurants as restaurant}
     <!-- <a href={restaurant.link}>{restaurant.title}</a> -->
     {#each restaurant.menus as menu}
-      <a href="{restaurant.link}/{menu.slug}">{restaurant.title} - {menu.nombre}</a>
+      <a rel=prefetch href="{restaurant.link}/{menu.slug}">{restaurant.title} - {menu.nombre}</a>
     {/each}
   {/each}
 </nav>
