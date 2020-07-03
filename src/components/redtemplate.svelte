@@ -29,7 +29,7 @@
       {#each columns as column,i}
         <div class="column">
           {#each column as category,j}
-              <Category category={category} />
+              <Category category={category} getImageUrl={getImageUrl}/>
           {/each}
         </div>
       {/each}
@@ -73,6 +73,7 @@
     text-align: center;
     font-size: 1.5em;
     margin: 15px 10% 0px 10%;
+    color:#F9CD82;
   }
 
   .separator{

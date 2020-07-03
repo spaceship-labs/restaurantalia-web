@@ -6,6 +6,7 @@
   export let imageurl = ""
   // console.log('cat', category)
 </script>
+{#if category.dishes.length>0}
 <article class="menu-category {imageposition}">
   {#if imageurl !== "" && imageposition === "image-position-top"}
     <img alt="" src={imageurl} />
@@ -18,6 +19,7 @@
     <img alt="" src={imageurl} />
   {/if}
 </article>
+{/if}
 
 <style>
   .menu-category {

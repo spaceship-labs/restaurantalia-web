@@ -3,18 +3,40 @@
 
   export let category
   export let imageposition = ""
+  export let getImageUrl;
 </script>
+{#if category.dishes.length>0}
 <article class="menu-category {imageposition}">
-  <h2>{category.nombre}</h2>
+  <div class="text-container">
+    <h2>{category.nombre}</h2>
+    <div class="divider"></div>
+  </div>
   {#each category.dishes as dish,i}
-    <Dish dish={dish} dishImagePosition={i%2!=0?'left':'right'}/>
+    <Dish dish={dish} dishImagePosition={i%2!=0?'left':'right'} getImageUrl={getImageUrl}/>
   {/each}
 </article>
-
+{/if}
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
   :global(h2) {
     font-family: 'Yellowtail', cursive;
+    color:#F9CD82;
+  }
+  .text-container{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    max-width: 80%;;
+  }
+  h2{
+    flex-grow:0;
+  }
+
+  .divider{
+    flex-grow:1;
+    height: 1px;
+    margin-left:10px;
+    background-color: #F9CD82;
   }
   .menu-category {
     padding: 10px 0;
