@@ -44,34 +44,26 @@ export const getCategoriesByMenu = async (menuId) => {
   return data
 }
 
-export const getPlatillosByCategoria = async (cats) => {
-  const params = (cats || []).reduce((result, cat) => {
-    const join = result === "" ? '' : '&'
-    let newResult = `${join}categorias.id=${cat.id}`
-    return result + newResult
-  }, "")
-  // console.log('PARAMS', params)
-  const { data } = await $axios.get(`/platillos?${params}&_limit=-1`);
-  
+export const getPlatillosByCategoria = async (category) => {
+  const params = `categorias.id=${category.id}&_limit=-1`
+  const { data } = await $axios.get(`/platillos?${params}`);
   return data
 }
 
-export const fetchData = async(menuslug)=>{
+export const fetchData = async (menuslug) =>{
   const [menu] = await getMenuSingle(menuslug)
-  const platillos = await getPlatillosByCategoria(menu.categorias)
+  return { menu }
+}
+
+export const getCategories = async(menu)=>{
   const categoriesArray = (menu.categorias || []).sort((a, b) => {
     return a.Orden - b.Orden
   })
-  //crea un objecto de categorias y le agrega los platillos que le corresponden
-  const categories = (categoriesArray || []).reduce((result, cat) => {
-    result[cat.id] = { ...cat, dishes: [] }
-    return result
-  }, {})
-  for (let dish of (platillos || [])) {
-    const { categorias, ...newDish } = dish
-    for (let categoria of (categorias || [])) {
-      categories[categoria.id].dishes.push(newDish)
-    }
-  }
-  return { menu, categories, platillos, uploadsUrl };
+  return categoriesArray || []
+}
+
+export const getDishes = async(category)=>{
+  const params = `categorias.id=${category.id}&_limit=-1`
+  const { data } = await $axios.get(`/platillos?${params}`);
+  return data
 }

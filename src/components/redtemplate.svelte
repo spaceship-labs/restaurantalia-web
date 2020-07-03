@@ -1,23 +1,29 @@
 <script>
   import Category from "./menucategory/redcategory.svelte"
+  import { getCategories, getImageUrl } from '../utils/api';
+  import { onMount } from 'svelte';
   export let menu
-  export let categories
-  export let getImageUrl
-
-  let columns = Object.keys(categories).reduce((cols, cat, i) => {
-    const c = i % 2
-    cols[c].push(categories[cat])
-    return cols
-  }, [[], []])
+  
+  let columns = [[],[]]
+  let fetch=true;
+  onMount(async () => {
+    let categories = await getCategories(menu);
+    columns = Object.keys(categories).reduce((cols, cat, i) => {
+      const c = i % 2
+      cols[c].push(categories[cat])
+      return cols
+    }, [[], []])
+    fetch=false;
+	});
 </script>
 <svelte:head>
-  <title>{menu.nombre} | Restaurantalia</title>
+  <title>{menu.nombre?menu.nombre:''} | Restaurantalia</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
 </svelte:head>
-
+{#if !fetch}
 <section class="menu red-menu">
   <div class="container">
-    {#if menu.menus_template.logo}
+    {#if menu.menus_template && menu.menus_template.logo}
     <div class="logo">
       <img alt="restaurant name" src="{getImageUrl(menu.menus_template.logo)}" />
     </div>
@@ -36,6 +42,10 @@
     </div>
   </div>
 </section>
+{:else}
+<p>fetching category...</p>
+{/if}
+
 
 <style>
   :global(html, body, span, a, button, div, h1, h2) {

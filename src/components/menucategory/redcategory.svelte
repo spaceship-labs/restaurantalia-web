@@ -1,21 +1,32 @@
 <script>
+  import { onMount } from 'svelte';
+  import { getDishes } from '../../utils/api'
   import Dish from "../dish/reddish.svelte"
-
-  export let category
-  export let imageposition = ""
   export let getImageUrl;
+  export let imageposition = ""
+  export let category
+  let fetch=true;
+  let dishes=[] 
+
+  onMount(async () => {
+    dishes = await getDishes(category);
+    fetch=false;
+	});
 </script>
-{#if category.dishes.length>0}
+{#if dishes.length>0}
 <article class="menu-category {imageposition}">
   <div class="text-container">
     <h2>{category.nombre}</h2>
     <div class="divider"></div>
   </div>
-  {#each category.dishes as dish,i}
+  {#each dishes as dish,i}
     <Dish dish={dish} dishImagePosition={i%2!=0?'left':'right'} getImageUrl={getImageUrl}/>
   {/each}
 </article>
-{/if}
+{:else}
+<p>fetching dishes</p>
+{/if} 
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
   :global(h2) {
