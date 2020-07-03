@@ -1,24 +1,33 @@
 <script>
+  import { onMount } from 'svelte';
+  import { getDishes, getImageUrl } from '../../utils/api'
+  
   import Dish from "../dish/index.svelte"
-
-  export let category
-  export let imageposition = ""
   export let imageurl = ""
-  // console.log('cat', category)
+  export let imageposition = ""
+  export let category
+  let fetch=true;
+  let dishes=[] 
+  onMount(async () => {
+    dishes = await getDishes(category);
+    fetch=false;
+	});
 </script>
-{#if category.dishes.length>0}
+{#if dishes.length>0}
 <article class="menu-category {imageposition}">
   {#if imageurl !== "" && imageposition === "image-position-top"}
     <img alt="" src={imageurl} />
   {/if}
   <h2>{category.nombre}</h2>
-  {#each category.dishes as dish}
+  {#each dishes as dish}
     <Dish dish={dish} />
   {/each}
   {#if imageurl !== "" && imageposition !== "image-position-top"}
     <img alt="" src={imageurl} />
   {/if}
 </article>
+{:else}
+<p>fetching dishes</p>
 {/if}
 
 <style>

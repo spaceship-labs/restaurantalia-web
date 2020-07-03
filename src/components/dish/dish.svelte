@@ -1,7 +1,6 @@
 <script>
   import { formatDescription } from '../../utils/format';
   export let dish
- 
 </script>
 <div class="dish">
   <h4>{dish.nombre}</h4>
