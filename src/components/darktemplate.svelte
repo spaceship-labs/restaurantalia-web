@@ -1,27 +1,36 @@
 <script>
-  import Category from "../components/menucategory/demo.svelte"
+  import Category from "./menucategory/category.svelte"
+  export let menu
+  export let categories
+  export let getImageUrl
+
+  let columns = Object.keys(categories).reduce((cols, cat, i) => {
+    const c = i % 3
+    cols[c].push(categories[cat])
+    return cols
+  }, [[], [], []])
 </script>
 <svelte:head>
-  <title>Demo | Restaurantalia</title>
+  <title>{menu.nombre} | Restaurantalia</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
 </svelte:head>
 
 <section class="menu dark-menu">
   <div class="container">
+    {#if menu.menus_template.logo}
     <div class="logo">
-      <img alt="restaurant name" src="../images/logo_black.PNG" />
+      <img alt="restaurant name" src="{getImageUrl(menu.menus_template.logo)}" />
     </div>
+    {/if}
     <h1>MENU</h1>
-    <img class="title-image" alt="restaurant name" src="../images/dish1.PNG" />
-    <div class="menu-content">
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-      <Category />
+   <div class="menu-content">
+      {#each columns as column,i}
+        <div class="column">
+          {#each column as category,j}
+              <Category category={category} />
+          {/each}
+        </div>
+      {/each}
     </div>
   </div>
 </section>
@@ -65,12 +74,14 @@
 
   .menu-content {
     padding: 15px 25px;
-    /* column-count: 1;
-  column-rule-style: none; */
   }
 
   .menu.dark-menu .menu-content {
     border-top: 1px solid;
+    padding: 15px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .title-image {
@@ -91,13 +102,16 @@
     }
 
     .menu.dark-menu .menu-content {
-      padding: 30px;
-      column-count: 2;
-      column-gap: 20px;
-      /* display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
-    align-items: start;
-    grid-column-gap: 70px; */
+      padding: 15px 0px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .column {
+      min-width: 40%;
+      flex: 1 0 40%;
+      padding: 0 30px;
+      box-sizing: border-box;
     }
   }
 
@@ -106,15 +120,17 @@
     .menu.dark-menu .menu-content {
       column-count: 3;
       column-gap: 60px;
-      /* grid-template-columns: repeat(3, minmax(300px, 1fr));
-    grid-column-gap: 60px; */
+    }
+    .column {
+      min-width: 30%;
+      flex: 1 0 30%;
+      max-width: 30%;
     }
   }
 
   @media (min-width: 1400px) {
     .menu-content {
       grid-column-gap: 200px;
-      /* column-gap: 200px; */
     }
   }
 </style>
