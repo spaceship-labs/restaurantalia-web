@@ -1,17 +1,22 @@
 <script>
   import Category from "./menucategory/category.svelte"
+  import { getCategories, getImageUrl } from '../utils/api';
+  import { onMount } from 'svelte';
   export let menu
-  export let categories
-  export let getImageUrl
+  let categories
+  let columns = [[],[]]
 
-  let columns = Object.keys(categories).reduce((cols, cat, i) => {
-    const c = i % 3
-    cols[c].push(categories[cat])
-    return cols
-  }, [[], [], []])
+  onMount(async () => {
+    categories = await getCategories(menu);
+    columns = Object.keys(categories).reduce((cols, cat, i) => {
+      const c = i % 3
+      cols[c].push(categories[cat])
+      return cols
+    }, [[], [], []])
+	});
 </script>
 <svelte:head>
-  <title>{menu.nombre} | Restaurantalia</title>
+  <title>{menu.nombre?menu.nombre:''}  | Restaurantalia</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
 </svelte:head>
 

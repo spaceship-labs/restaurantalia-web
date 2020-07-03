@@ -2,8 +2,11 @@ const webpack = require('webpack');
 const path = require('path');
 const config = require('sapper/config/webpack.js');
 const pkg = require('./package.json');
-
+require('dotenv').config();
 const mode = process.env.NODE_ENV;
+const API_URL = process.env.API_URL;
+const STRAPI_JWt = process.env.STRAPI_JWt;
+const UPLOADS_URL = process.env.UPLOADS_URL;
 const dev = mode === 'development';
 
 const alias = { svelte: path.resolve('node_modules', 'svelte') };
@@ -36,7 +39,11 @@ module.exports = {
 			// dev && new webpack.HotModuleReplacementPlugin(),
 			new webpack.DefinePlugin({
 				'process.browser': true,
-				'process.env.NODE_ENV': JSON.stringify(mode)
+				'process.env.NODE_ENV': JSON.stringify(mode),
+				'process.env.API_URL': JSON.stringify(API_URL),
+				'process.env.STRAPI_JWt': JSON.stringify(STRAPI_JWt),
+				'process.env.UPLOADS_URL': JSON.stringify(UPLOADS_URL)
+
 			}),
 		].filter(Boolean),
 		devtool: dev && 'inline-source-map'
