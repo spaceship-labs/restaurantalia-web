@@ -1,33 +1,59 @@
 <script>
-  import Category from "../components/menucategory/demo.svelte"
+  import Category from "./menucategory/index.svelte"
+
+  export let menu
+  export let categories
+  export let getImageUrl
+
+  let columns = Object.keys(categories).reduce((cols, cat, i) => {
+    const c = i % 3
+    cols[c].push(categories[cat])
+    return cols
+  }, [[], [], []])
 </script>
 <svelte:head>
-  <title>Demo | Restaurantalia</title>
+  <title>{menu.nombre} | Restaurantalia</title>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
 </svelte:head>
 
 <section class="menu light-menu">
   <div class="container">
+    {#if menu.menus_template.logo}
     <div class="logo">
-      <img alt="restaurant name" src="../images/logo_black.PNG" />
+      <img alt="restaurant name" src={getImageUrl(menu.menus_template.logo)} />
     </div>
+    {/if}
     <h1>MENU</h1>
-    <img class="title-image" alt="restaurant name" src="../images/dish1.PNG" />
+    <img class="title-image" alt="restaurant name" src="/images/dish1.PNG" />
     <div class="menu-content">
-      <div class="column">
-        <Category />
-        <Category imageposition="image-position-left" imageurl="../images/dish3.PNG" />
-        <Category />
-      </div>
-      <div class="column">
-        <Category imageposition="image-position-top" imageurl="../images/dish1.PNG" />
-        <Category imageurl="../images/dish1.PNG" />
-      </div>
-      <div class="column">
-        <Category imageposition="image-position-top2" imageurl="../images/dish2.PNG" />
-        <Category />
-        <Category />
-      </div>
+      {#each columns as column,i}
+        <div class="column">
+          {#each column as category,j}
+            {#if i === 0 && j === 1 }
+              <Category 
+                category={category} 
+                imageposition="image-position-left" 
+                imageurl="/images/dish3.PNG" />
+            {:else if i === 1 && j === 0 }
+              <Category 
+                category={category} 
+                imageposition="image-position-top" 
+                imageurl="/images/dish1.PNG" />
+            {:else if i === 1 && j === 1 }
+              <Category 
+                category={category} 
+                imageurl="/images/dish1.PNG" />
+            {:else if i === 1 && j === 0 }
+              <Category 
+                category={category} 
+                imageposition="image-position-top2" 
+                imageurl="/images/dish2.PNG" />
+            {:else}
+              <Category category={category} />
+            {/if}
+          {/each}
+        </div>
+      {/each}
     </div>
   </div>
 </section>

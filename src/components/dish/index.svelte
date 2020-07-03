@@ -1,7 +1,6 @@
 <script>
   import { formatDescription } from '../../utils/format';
   export let dish
- 
 </script>
 <div class="dish">
   <h4>{dish.nombre}</h4>
@@ -30,10 +29,6 @@
   .spacer{
     min-width: 20px;
   }
-  span {
-    background-color:#000;
-    padding: 0 3px;  
-  }
   .dish p {
     margin: 0;
     font-weight: 300;
@@ -47,10 +42,14 @@
   .dish .details .description {
     font-size: 1em;
   }
-
+  span {
+    background-color:#fff3e2;    
+    padding: 0 3px;  
+  }
   .dish .details .price p {
     font-size: 1em;
     font-weight: 600;
+    background-color:#fff3e2;
   }
 
   .fill {
@@ -60,18 +59,14 @@
     min-width: 20px;
     margin-top: -.4em;
   }
-  @media(min-width:1200px){
+   @media(min-width:1200px){
     .fill {
       border-bottom: 2px dotted;
-      flex: 1;
-      min-width: 20px;
     }
   }
   @media(min-width:1500px){
     .fill {
       border-bottom: 3px dotted;
-      flex: 1;
-      min-width: 20px;
     }
   }
 </style>

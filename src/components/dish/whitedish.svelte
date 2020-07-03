@@ -1,20 +1,21 @@
 <script>
-  import { formatDescription } from '../../utils/format';
   export let dish
- 
 </script>
 <div class="dish">
-  <h4>{dish.nombre}</h4>
+  <h4>
+    <li>
+    {dish.nombre}
+    </li>
+  </h4>
   <div class="details">
     <div class="description">
-      <p><span>{formatDescription(dish)||""}</span></p>
+      <p>{dish.descripcion||""}</p>
     </div>
-    <div class="spacer"/>
+    <div class="fill"></div>
     <div class="price">
-      <p><span>${dish.precio}</span></p>
+      <p>${dish.precio}</p>
     </div>
   </div>
-  <div class="fill"></div>
 </div><!-- dish end -->
 
 <style>
@@ -27,13 +28,7 @@
     font-weight: 400;
     margin: 0;
   }
-  .spacer{
-    min-width: 20px;
-  }
-  span {
-    background-color:#000;
-    padding: 0 3px;  
-  }
+
   .dish p {
     margin: 0;
     font-weight: 300;
@@ -42,6 +37,7 @@
   .dish .details {
     display: flex;
     align-items: flex-end;
+
   }
 
   .dish .details .description {
@@ -53,22 +49,20 @@
     font-weight: 600;
   }
 
-  .fill {
-    z-index:-1;
+  .dish .details .fill {
     border-bottom: 1px dotted;
     flex: 1;
     min-width: 20px;
-    margin-top: -.4em;
   }
   @media(min-width:1200px){
-    .fill {
+    .dish .details .fill {
       border-bottom: 2px dotted;
       flex: 1;
       min-width: 20px;
     }
   }
   @media(min-width:1500px){
-    .fill {
+    .dish .details .fill {
       border-bottom: 3px dotted;
       flex: 1;
       min-width: 20px;
