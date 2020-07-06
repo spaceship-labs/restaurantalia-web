@@ -124,7 +124,6 @@
 
     .menu.dark-menu .menu-content {
       column-count: 3;
-      column-gap: 60px;
     }
     .column {
       min-width: 30%;
@@ -133,9 +132,4 @@
     }
   }
 
-  @media (min-width: 1400px) {
-    .menu-content {
-      grid-column-gap: 200px;
-    }
-  }
 </style>
