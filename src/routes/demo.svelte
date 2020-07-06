@@ -141,10 +141,5 @@
     }
   }
 
-  @media (min-width: 1400px) {
-    .menu-content {
-      grid-column-gap: 200px;
-      /* column-gap: 200px; */
-    }
-  }
+  
 </style>
