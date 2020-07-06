@@ -149,13 +149,7 @@
 
     .menu.white-menu .menu-content {
       column-count: 3;
-      column-gap: 60px;
     }
   }
 
-  @media (min-width: 1400px) {
-    .menu-content {
-      grid-column-gap: 200px;
-    }
-  }
 </style>

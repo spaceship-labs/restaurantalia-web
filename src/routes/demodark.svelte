@@ -93,7 +93,6 @@
     .menu.dark-menu .menu-content {
       padding: 30px;
       column-count: 2;
-      column-gap: 20px;
       /* display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr));
     align-items: start;
@@ -105,16 +104,10 @@
 
     .menu.dark-menu .menu-content {
       column-count: 3;
-      column-gap: 60px;
       /* grid-template-columns: repeat(3, minmax(300px, 1fr));
     grid-column-gap: 60px; */
     }
   }
 
-  @media (min-width: 1400px) {
-    .menu-content {
-      grid-column-gap: 200px;
-      /* column-gap: 200px; */
-    }
-  }
+ 
 </style>
