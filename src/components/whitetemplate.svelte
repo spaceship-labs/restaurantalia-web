@@ -26,9 +26,12 @@
   :global(html, body, span, a, button, div, h1, h2) {
     font-family: "Oswald", sans-serif;
   }
+
   .container {
     background-color: #f0efed;
+    max-width: 95%;
   }
+
   .menu {
     color: #000;
     width: 100%;
@@ -53,6 +56,7 @@
     margin: 15px 10% 0px 10%;
     font-family: "Montserrat", sans-serif;
   }
+
   .menu .separator h1:before,
   .menu h1:after {
     content: "●●●";
@@ -85,7 +89,7 @@
 
   @media (min-width: 750px) {
     .menu {
-      padding: 30px 0;
+      padding: 2.5% 0;
     }
 
     .menu .separator h1 {
@@ -93,17 +97,20 @@
       font-size: 2em;
       margin: 15px 10% 0px 10%;
     }
+
     .menu.white-menu .menu-content {
       padding: 0px 0px 15px 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
     }
+
     .column {
       min-width: 50%;
       flex: 1 0 50%;
       box-sizing: border-box;
     }
+
     .column:nth-child(1) {
       border-right: 2px solid #000;
     }
@@ -118,9 +125,7 @@
 
 <svelte:head>
   <title>{menu.nombre ? menu.nombre : ''} | Restaurantalia</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </svelte:head>
 
 <section class="menu white-menu">
