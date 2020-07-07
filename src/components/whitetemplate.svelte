@@ -1,5 +1,5 @@
 <script>
-  import Logo from "./Logo/index.svelte";
+  import Logo from "./logo/index.svelte";
   import Category from "./menucategory/whitecategory.svelte";
   import { getCategories } from "../utils/api";
   import { onMount } from "svelte";

@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 15px 0;
   }
   .ml {
     justify-content: flex-start !important;
