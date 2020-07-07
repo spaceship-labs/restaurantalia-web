@@ -29,6 +29,7 @@
     border: 2px solid #000;
     border-left: 0;
     border-right: 0;
+    font-family: "Montserrat", sans-serif;
   }
 
   .pl {

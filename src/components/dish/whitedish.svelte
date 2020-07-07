@@ -5,6 +5,7 @@
 </script>
 
 <style>
+  @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
   ul.details {
     max-width: 40em;
     padding: 0;
@@ -12,6 +13,14 @@
     overflow-x: hidden;
     list-style: none;
     font-size: 1em;
+  }
+  li {
+    font-family: "Inconsolata", monospace;
+    font-weight: 700;
+  }
+  li span {
+    font-family: "Inconsolata", monospace;
+    font-weight: 400;
   }
   ul.details li:after {
     float: left;

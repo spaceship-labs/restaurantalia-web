@@ -1,52 +1,31 @@
 <script>
-  import Category from "./menucategory/category.svelte"
-  import { getCategories, getImageUrl } from '../utils/api';
-  import { onMount } from 'svelte';
-  export let menu
-  let categories
-  let columns = [[],[]]
+  import Logo from "./logo/index.svelte";
+  import Category from "./menucategory/category.svelte";
+  import { getCategories } from "../utils/api";
+  import { onMount } from "svelte";
+  export let menu;
+  let categories;
+  let columns = [[], []];
 
   onMount(async () => {
     categories = await getCategories(menu);
-    columns = Object.keys(categories).reduce((cols, cat, i) => {
-      const c = i % 3
-      cols[c].push(categories[cat])
-      return cols
-    }, [[], [], []])
-	});
+    columns = Object.keys(categories).reduce(
+      (cols, cat, i) => {
+        const c = i % 3;
+        cols[c].push(categories[cat]);
+        return cols;
+      },
+      [[], [], []]
+    );
+  });
 </script>
-<svelte:head>
-  <title>{menu.nombre?menu.nombre:''}  | Restaurantalia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
-</svelte:head>
-
-<section class="menu dark-menu">
-  <div class="container">
-    {#if menu.menus_template.logo}
-    <div class="logo">
-      <img alt="restaurant name" src="{getImageUrl(menu.menus_template.logo)}" />
-    </div>
-    {/if}
-    <h1>MENU</h1>
-   <div class="menu-content">
-      {#each columns as column,i}
-        <div class="column">
-          {#each column as category,j}
-              <Category category={category} />
-          {/each}
-        </div>
-      {/each}
-    </div>
-  </div>
-</section>
 
 <style>
   :global(html, body, span, a, button, div, h1, h2) {
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
   }
 
   .menu {
-    color: #000;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -56,19 +35,8 @@
   }
 
   .dark-menu {
-    background-color: #000;
+    background-color: #131313;
     color: #fff;
-  }
-
-  .menu .logo {
-    text-align: center;
-    margin: 0px 10%;
-  }
-
-  .menu .logo img {
-    max-width: 160px;
-    position: relative;
-    z-index: 1;
   }
 
   .menu h1 {
@@ -121,7 +89,6 @@
   }
 
   @media (min-width: 1100px) {
-
     .menu.dark-menu .menu-content {
       column-count: 3;
     }
@@ -131,5 +98,27 @@
       max-width: 30%;
     }
   }
-
 </style>
+
+<svelte:head>
+  <title>{menu.nombre ? menu.nombre : ''} | Restaurantalia</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+</svelte:head>
+
+<section class="menu dark-menu">
+  <div class="container">
+    <Logo logo={menu.menus_template.logo} />
+    <h1>MENU</h1>
+    <div class="menu-content">
+      {#each columns as column, i}
+        <div class="column">
+          {#each column as category, j}
+            <Category {category} />
+          {/each}
+        </div>
+      {/each}
+    </div>
+  </div>
+</section>
