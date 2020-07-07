@@ -1,55 +1,29 @@
 <script>
-  import Category from "./menucategory/redcategory.svelte"
-  import { getCategories, getImageUrl } from '../utils/api';
-  import { onMount } from 'svelte';
-  export let menu
-  
-  let columns = [[],[]]
-  let fetch=true;
+  import Logo from "./logo/index.svelte";
+  import Category from "./menucategory/redcategory.svelte";
+  import { getCategories, getImageUrl } from "../utils/api";
+  import { onMount } from "svelte";
+  export let menu;
+
+  let columns = [[], []];
+  let fetch = true;
   onMount(async () => {
     let categories = await getCategories(menu);
-    columns = Object.keys(categories).reduce((cols, cat, i) => {
-      const c = i % 2
-      cols[c].push(categories[cat])
-      return cols
-    }, [[], []])
-    fetch=false;
-	});
+    columns = Object.keys(categories).reduce(
+      (cols, cat, i) => {
+        const c = i % 2;
+        cols[c].push(categories[cat]);
+        return cols;
+      },
+      [[], []]
+    );
+    fetch = false;
+  });
 </script>
-<svelte:head>
-  <title>{menu.nombre?menu.nombre:''} | Restaurantalia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
-</svelte:head>
-{#if !fetch}
-<section class="menu red-menu">
-  <div class="container">
-    {#if menu.menus_template && menu.menus_template.logo}
-    <div class="logo">
-      <img alt="restaurant name" src="{getImageUrl(menu.menus_template.logo)}" />
-    </div>
-    {/if}
-    <div class="separator">
-      <h1>MENÚ</h1>
-    </div>
-    <div class="menu-content">
-      {#each columns as column,i}
-        <div class="column">
-          {#each column as category,j}
-              <Category category={category} getImageUrl={getImageUrl}/>
-          {/each}
-        </div>
-      {/each}
-    </div>
-  </div>
-</section>
-{:else}
-<p>fetching category...</p>
-{/if}
-
 
 <style>
   :global(html, body, span, a, button, div, h1, h2) {
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
   }
   .menu {
     width: 100%;
@@ -63,30 +37,19 @@
   .red-menu {
     background-color: #500c0d;
     color: #fff;
-    background-image: url('../images/red_bg.JPG');
+    background-image: url("../images/red_bg.JPG");
     background-attachment: fixed;
     background-size: cover;
-  }
-
-  .menu .logo {
-    text-align: center;
-    margin: 20px 10%;
-  }
-
-  .menu .logo img {
-    max-width: 160px;
-    position: relative;
-    z-index: 1;
   }
 
   .menu .separator h1 {
     text-align: center;
     font-size: 1.5em;
     margin: 15px 10% 0px 10%;
-    color:#F9CD82;
+    color: #f9cd82;
   }
 
-  .separator{
+  .separator {
     margin: 10px 2%;
   }
 
@@ -102,13 +65,6 @@
     justify-content: space-between;
   }
 
-  .title-image {
-    position: absolute;
-    top: -60px;
-    right: -30px;
-    max-width: 300px;
-    z-index: 0;
-  }
   .column {
     min-width: 100%;
     flex: 1 0 100%;
@@ -120,14 +76,11 @@
       padding: 30px 0;
     }
 
-    .title-image {
-      display: none;
-    }
     .menu .separator h1 {
-    text-align: center;
-    font-size: 2em;
-    margin: 15px 10% 0px 10%;
-  }
+      text-align: center;
+      font-size: 2em;
+      margin: 15px 10% 0px 10%;
+    }
 
     .menu.red-menu .menu-content {
       padding: 0px 0px 15px 0;
@@ -140,14 +93,41 @@
       flex: 1 0 50%;
       box-sizing: border-box;
     }
-
   }
 
   @media (min-width: 1100px) {
-
     .menu.red-menu .menu-content {
       column-count: 3;
     }
   }
-
 </style>
+
+<svelte:head>
+  <title>{menu.nombre ? menu.nombre : ''} | Restaurantalia</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+</svelte:head>
+{#if !fetch}
+  <section class="menu red-menu">
+    <div class="container">
+      {#if menu.menus_template}
+        <Logo logo={menu.menus_template.logo} />
+      {/if}
+      <div class="separator">
+        <h1>MENÚ</h1>
+      </div>
+      <div class="menu-content">
+        {#each columns as column, i}
+          <div class="column">
+            {#each column as category, j}
+              <Category {category} {getImageUrl} />
+            {/each}
+          </div>
+        {/each}
+      </div>
+    </div>
+  </section>
+{:else}
+  <p>fetching category...</p>
+{/if}

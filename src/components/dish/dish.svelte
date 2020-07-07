@@ -1,5 +1,5 @@
 <script>
-  import { formatDescription } from "../../utils/format";
+  import { formatDescription, formatTitle } from "../../utils/format";
   export let dish;
 </script>
 
@@ -46,7 +46,7 @@
 </style>
 
 <div class="dish">
-  <h4>{dish.nombre}</h4>
+  <h4>{formatTitle(dish) || ''}</h4>
   <ul class="details">
     <li>
       <span>{formatDescription(dish) || ''}</span>
