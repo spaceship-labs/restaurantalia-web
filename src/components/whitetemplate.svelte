@@ -21,7 +21,7 @@
 </script>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap");
 
   :global(html, body, span, a, button, div, h1, h2) {
     font-family: "Oswald", sans-serif;
@@ -38,7 +38,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 0;
+    padding: 2.5% 0;
     flex: 1;
   }
 
@@ -88,10 +88,6 @@
   }
 
   @media (min-width: 750px) {
-    .menu {
-      padding: 2.5% 0;
-    }
-
     .menu .separator h1 {
       text-align: center;
       font-size: 2em;
@@ -125,7 +121,9 @@
 
 <svelte:head>
   <title>{menu.nombre ? menu.nombre : ''} | Restaurantalia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
 </svelte:head>
 
 <section class="menu white-menu">

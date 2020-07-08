@@ -35,7 +35,15 @@
     z-index: 1;
   }
   .dish {
-    padding: 5px 20px;
+    padding: 5px 20px 5px 38px;
+  }
+
+  .dish:before {
+    content: "●";
+    font-size: 0.6em;
+    position: absolute;
+    left: 0;
+    margin: 0.4em 0 0 2em;
   }
 
   .dish h4 {
