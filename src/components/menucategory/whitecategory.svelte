@@ -38,15 +38,28 @@
   .column article:nth-child(1) h2 {
     margin: 0;
   }
+  .description {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8em;
+  }
+  .mpl {
+    padding-left: 3% !important;
+  }
 </style>
 
 {#if dishes.length > 0}
   <article class="menu-category">
+
     <h2 class={column == 0 ? '' : 'pl'}>{category.nombre}</h2>
+    <p class="description {column == 0 ? 'mpl' : 'pl'}">
+      {category.descripcion || ''}
+    </p>
     {#each dishes as dish}
       <Dish {dish} {column} />
     {/each}
   </article>
-{:else}
+{:else if fetch}
   <p>fetching dishes</p>
 {/if}

@@ -1,53 +1,40 @@
 <script>
-  import { onMount } from 'svelte';
-  import { getDishes } from '../../utils/api'
-  import Dish from "../dish/reddish.svelte"
+  import { onMount } from "svelte";
+  import { getDishes } from "../../utils/api";
+  import Dish from "../dish/reddish.svelte";
   export let getImageUrl;
-  export let imageposition = ""
-  export let category
-  let fetch=true;
-  let dishes=[] 
+  export let imageposition = "";
+  export let category;
+  let fetch = true;
+  let dishes = [];
 
   onMount(async () => {
     dishes = await getDishes(category);
-    fetch=false;
-	});
+    fetch = false;
+  });
 </script>
-{#if dishes.length>0}
-<article class="menu-category {imageposition}">
-  <div class="text-container">
-    <h2>{category.nombre}</h2>
-    <div class="divider"></div>
-  </div>
-  {#each dishes as dish,i}
-    <Dish dish={dish} dishImagePosition={i%2!=0?'left':'right'} getImageUrl={getImageUrl}/>
-  {/each}
-</article>
-{:else}
-<p>fetching dishes</p>
-{/if} 
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Yellowtail&display=swap");
   :global(h2) {
-    font-family: 'Yellowtail', cursive;
-    color:#F9CD82;
+    font-family: "Yellowtail", cursive;
+    color: #f9cd82;
   }
-  .text-container{
-    display:flex;
-    flex-direction:row;
+  .text-container {
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    max-width: 80%;;
+    max-width: 80%;
   }
-  h2{
-    flex-grow:0;
+  h2 {
+    flex-grow: 0;
   }
 
-  .divider{
-    flex-grow:1;
+  .divider {
+    flex-grow: 1;
     height: 1px;
-    margin-left:10px;
-    background-color: #F9CD82;
+    margin-left: 10px;
+    background-color: #f9cd82;
   }
   .menu-category {
     padding: 10px 0;
@@ -101,3 +88,20 @@
     }
   }
 </style>
+
+{#if dishes.length > 0}
+  <article class="menu-category {imageposition}">
+    <div class="text-container">
+      <h2>{category.nombre}</h2>
+      <div class="divider" />
+    </div>
+    {#each dishes as dish, i}
+      <Dish
+        {dish}
+        dishImagePosition={i % 2 != 0 ? 'left' : 'right'}
+        {getImageUrl} />
+    {/each}
+  </article>
+{:else if fetch}
+  <p>fetching dishes</p>
+{/if}
