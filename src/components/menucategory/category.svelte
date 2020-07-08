@@ -37,6 +37,6 @@
       <Dish {dish} />
     {/each}
   </article>
-{:else}
+{:else if fetch}
   <p>fetching dishes</p>
 {/if}

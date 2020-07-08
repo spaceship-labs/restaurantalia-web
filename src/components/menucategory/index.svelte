@@ -1,34 +1,18 @@
 <script>
-  import { onMount } from 'svelte';
-  import { getDishes, getImageUrl } from '../../utils/api'
-  
-  import Dish from "../dish/index.svelte"
-  export let imageurl = ""
-  export let imageposition = ""
-  export let category
-  let fetch=true;
-  let dishes=[] 
+  import { onMount } from "svelte";
+  import { getDishes, getImageUrl } from "../../utils/api";
+
+  import Dish from "../dish/index.svelte";
+  export let imageurl = "";
+  export let imageposition = "";
+  export let category;
+  let fetch = true;
+  let dishes = [];
   onMount(async () => {
     dishes = await getDishes(category);
-    fetch=false;
-	});
+    fetch = false;
+  });
 </script>
-{#if dishes.length>0}
-<article class="menu-category {imageposition}">
-  {#if imageurl !== "" && imageposition === "image-position-top"}
-    <img alt="" src={imageurl} />
-  {/if}
-  <h2>{category.nombre}</h2>
-  {#each dishes as dish}
-    <Dish dish={dish} />
-  {/each}
-  {#if imageurl !== "" && imageposition !== "image-position-top"}
-    <img alt="" src={imageurl} />
-  {/if}
-</article>
-{:else}
-<p>fetching dishes</p>
-{/if}
 
 <style>
   .menu-category {
@@ -47,7 +31,25 @@
     display: block;
     margin: 10px auto;
   }
-
+  .image-position-top img,
+  .image-position-top2 img {
+    mask-image: url("/images/Mancha_der.png");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-image: url("/images/Mancha_der.png");
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+  }
+  .image-position-left img {
+    mask-image: url("/images/Mancha_izq.png");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-image: url("/images/Mancha_izq.png");
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+  }
   @media (min-width: 750px) AND (max-width: 1099px) {
     .image-position-top img {
       position: relative;
@@ -83,3 +85,20 @@
     }
   }
 </style>
+
+{#if dishes.length > 0}
+  <article class="menu-category {imageposition}">
+    {#if imageurl !== '' && imageposition === 'image-position-top'}
+      <img alt="" src={imageurl} />
+    {/if}
+    <h2>{category.nombre}</h2>
+    {#each dishes as dish}
+      <Dish {dish} />
+    {/each}
+    {#if imageurl !== '' && imageposition !== 'image-position-top'}
+      <img alt="" src={imageurl} />
+    {/if}
+  </article>
+{:else if fetch}
+  <p>fetching dishes</p>
+{/if}
