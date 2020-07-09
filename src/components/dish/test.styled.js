@@ -1,11 +1,10 @@
 import { css } from 'emotion';
-// import { theme } from "../../utils/api.js"
+import { theme } from "../../utils/theme.js"
 
-const CustomStyles = (theme) => ({
+const CustomStyles = () => ({
   description: css`
-      color: ${theme.color};
-      font-size: 5em;
-    `,
+    color: ${theme.color};
+  `,
 });
 
 export default CustomStyles;

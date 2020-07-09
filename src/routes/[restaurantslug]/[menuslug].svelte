@@ -10,7 +10,7 @@
   import WhiteTemplate from "../../components/whitetemplate.svelte"
   import RedTemplate from "../../components/redtemplate.svelte"
   import { uploadsUrl, fetchData } from "../../utils/api.js"
-  import { theme, updateTheme } from "../../utils/api.js"
+  import { updateTheme } from "../../utils/theme.js"
 
   import { onMount } from 'svelte';
   export let menuslug;
@@ -22,9 +22,8 @@
     menu = data.menu;
     template = menu.menus_template.template
     fetch = false;
-    const colors = ['green', 'blue', 'red', 'yellow'];
     updateTheme({
-      color: colors[template],
+      color: 'green',
     })
   });
   function getImageUrl(image) {
