@@ -32,7 +32,7 @@ export const getMenuSingle = async (slug) => {
   return data
 }
 
-export const getMenuByRestaurant = async(restaurant)=>{
+export const getMenuByRestaurant = async (restaurant) => {
   const { data } = await $axios.get(`/menus?restaurante.slug=${restaurant}`);
 
   return data
@@ -50,19 +50,19 @@ export const getPlatillosByCategoria = async (category) => {
   return data
 }
 
-export const fetchData = async (menuslug) =>{
+export const fetchData = async (menuslug) => {
   const [menu] = await getMenuSingle(menuslug)
   return { menu }
 }
 
-export const getCategories = async(menu)=>{
+export const getCategories = async (menu) => {
   const categoriesArray = (menu.categorias || []).sort((a, b) => {
     return a.Orden - b.Orden
   })
   return categoriesArray || []
 }
 
-export const getDishes = async(category)=>{
+export const getDishes = async (category) => {
   const params = `categorias.id=${category.id}&_limit=-1`
   const { data } = await $axios.get(`/platillos?${params}`);
   return data

@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import Dish from "../dish/whitedish.svelte";
+  import Dish from "../dish/test.svelte";
   import { getDishes } from "../../utils/api";
   export let category;
   export let column;
@@ -21,6 +21,7 @@
   page-break-inside: avoid;
   break-inside: avoid; */
   }
+
   .menu-category h2 {
     text-transform: uppercase;
     font-size: 1.5em;
@@ -35,15 +36,18 @@
   .pl {
     padding-left: 10% !important;
   }
+
   .column article:nth-child(1) h2 {
     margin: 0;
   }
+
   .description {
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 0.8em;
   }
+
   .mpl {
     padding-left: 3% !important;
   }
