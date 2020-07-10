@@ -63,7 +63,7 @@ export const getCategories = async (menu) => {
 }
 
 export const getDishes = async (category) => {
-  const params = `categorias.id=${category.id}&_limit=-1`
+  const params = `categorias.id=${category.id}&_limit=-1&_sort=orden:ASC`
   const { data } = await $axios.get(`/platillos?${params}`);
   return data
 }
