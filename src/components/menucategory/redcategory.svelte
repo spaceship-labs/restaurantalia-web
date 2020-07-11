@@ -1,7 +1,8 @@
 <script>
   import { onMount } from "svelte";
   import { getDishes } from "../../utils/api";
-  import Dish from "../dish/reddish.svelte";
+  // import Dish from "../dish/reddish.svelte";
+  import Dish2 from "../dish/reddish.emotion.svelte";
   export let getImageUrl;
   export let imageposition = "";
   export let category;
@@ -16,16 +17,19 @@
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Yellowtail&display=swap");
+
   :global(h2) {
     font-family: "Yellowtail", cursive;
     color: #f9cd82;
   }
+
   .text-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     max-width: 80%;
   }
+
   h2 {
     flex-grow: 0;
   }
@@ -36,6 +40,7 @@
     margin-left: 10px;
     background-color: #f9cd82;
   }
+
   .menu-category {
     padding: 10px 0;
     position: relative;
@@ -96,10 +101,11 @@
       <div class="divider" />
     </div>
     {#each dishes as dish, i}
-      <Dish
+      <!-- <Dish
         {dish}
         dishImagePosition={i % 2 != 0 ? 'left' : 'right'}
-        {getImageUrl} />
+        {getImageUrl} /> -->
+      <Dish2 {dish} imagePosition={i % 2 !=0 ? 'left' : 'right' } {getImageUrl} />
     {/each}
   </article>
 {:else if fetch}

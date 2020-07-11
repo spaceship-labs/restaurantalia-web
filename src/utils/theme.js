@@ -1,14 +1,14 @@
 import { writable } from 'svelte/store';
 
-export const themeStore = writable({
-  color: 'red',
-});
+function createTheme() {
+  const { subscribe, set, update } = writable({
+    color: 'red',
+  });
+  return {
+    subscribe,
+    setTheme: (options) => set(options),
+    updateTheme: (options) => update(n => options),
+  };
+}
 
-export const updateTheme = (options) => themeStore.update(() => options);
-
-let theme = {};
-themeStore.subscribe(value => {
-  theme = value;
-});
-
-export { theme }
+export const theme = createTheme();

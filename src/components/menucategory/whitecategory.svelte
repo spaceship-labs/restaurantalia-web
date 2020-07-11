@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import Dish from "../dish/test.svelte";
+  import Dish from "../dish/index.emotion.svelte";
   import { getDishes } from "../../utils/api";
   export let category;
   export let column;
@@ -14,6 +14,8 @@
 </script>
 
 <style>
+  @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
+
   .menu-category {
     padding: 0 0;
     position: relative;

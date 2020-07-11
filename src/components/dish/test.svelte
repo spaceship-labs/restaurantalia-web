@@ -2,8 +2,9 @@
   import { onMount } from "svelte";
   import { formatDescription } from "../../utils/format";
   export let dish;
-  import CustomStyles from './test.styled.js';
-  const { description } = CustomStyles();
+  import CustomStyles from './index.styled.js';
+  import { theme } from "../../utils/theme.js"
+  const { description } = CustomStyles($theme);
 
 </script>
 
