@@ -1,6 +1,6 @@
 <script>
   import Logo from "./logo/index.svelte";
-  import Category from "./menucategory/category.svelte";
+  import Category from "./menucategory/index.emotion.svelte";
   import { getCategories } from "../utils/api";
   import { onMount } from "svelte";
   export let menu;
@@ -80,6 +80,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
     }
+
     .column {
       min-width: 40%;
       flex: 1 0 40%;
@@ -92,6 +93,7 @@
     .menu.dark-menu .menu-content {
       column-count: 3;
     }
+
     .column {
       min-width: 30%;
       flex: 1 0 30%;
@@ -102,9 +104,7 @@
 
 <svelte:head>
   <title>{menu.nombre ? menu.nombre : ''} | Restaurantalia</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </svelte:head>
 
 <section class="menu dark-menu">

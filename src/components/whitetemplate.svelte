@@ -1,6 +1,6 @@
 <script>
   import Logo from "./logo/index.svelte";
-  import Category from "./menucategory/whitecategory.svelte";
+  import Category from "./menucategory/index.emotion.svelte";
   import { getCategories } from "../utils/api";
   import { onMount } from "svelte";
   export let menu;
@@ -22,6 +22,7 @@
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
 
   :global(html, body, span, a, button, div, h1, h2) {
     font-family: "Oswald", sans-serif;
@@ -121,9 +122,6 @@
 
 <svelte:head>
   <title>{menu.nombre ? menu.nombre : ''} | Restaurantalia</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap"
-    rel="stylesheet" />
 </svelte:head>
 
 <section class="menu white-menu">

@@ -21,7 +21,8 @@
     const data = await fetchData(menuslug)
     menu = data.menu;
     const { configuracion } = menu.menus_template;
-    template = menu.menus_template.template;
+    // template = menu.menus_template.template;
+    template = 4;
     fetch = false;
     const colors = ['green', 'red', 'yellow', 'blue', 'purple'];
     theme.updateTheme({

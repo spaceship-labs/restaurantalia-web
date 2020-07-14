@@ -39,7 +39,7 @@ const getDots = (template) => {
 
 const CustomStyles = (theme) => {
   const { template, config } = theme;
-  const { dishes: { color, font, weightTitle } } = config;
+  const { dishes: { color, font, weightTitle, colorTitle } } = config;
   const redMargins = {
     l: css`margin-right: 15%;`,
     r: css`margin-left: 18%;`,
@@ -86,6 +86,7 @@ const CustomStyles = (theme) => {
       li{
         font-weight: ${weightTitle || 700};
         font-family: ${font};
+        color: ${colorTitle || color};
       }
     `,
     titleRed: css` 
@@ -93,6 +94,7 @@ const CustomStyles = (theme) => {
       margin: 0;
       font-weight: ${weightTitle || 700};
       font-family: ${font};
+      color: ${colorTitle || '#ffffff'};
     `,
     details: css`
       max-width: 40em;
