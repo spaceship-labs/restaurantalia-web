@@ -1,4 +1,4 @@
-import { getDishes } from './api'
+import { getDishesCount } from './api'
 function formatDescription({ descripcion }) {
   if (!descripcion) {
     return descripcion;
@@ -16,7 +16,7 @@ function formatTitle({ nombre }) {
 
 async function getBalancedColumns(categories, numColumns = 3) {
   return await Promise.all(categories.map(async category => {
-    return (await getDishes(category)).length || 0
+    return (await getDishesCount(category))
   })).then(dishesByCategory => {
     let totalOfDishes = dishesByCategory.reduce((acc, dishes) => acc + dishes, 0);
     let size = Math.floor(totalOfDishes / numColumns);
