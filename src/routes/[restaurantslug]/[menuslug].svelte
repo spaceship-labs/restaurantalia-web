@@ -5,10 +5,10 @@
   }
 </script>
 <script>
-  import Brown4Images from "../../components/brown4images.svelte"
-  import DarkTemplate from "../../components/darktemplate.svelte"
-  import WhiteTemplate from "../../components/whitetemplate.svelte"
-  import RedTemplate from "../../components/redtemplate.svelte"
+  import Brown4Images from "../../components/menu/brown4images.svelte"
+  import DarkTemplate from "../../components/menu/darktemplate.svelte"
+  import WhiteTemplate from "../../components/menu/whitetemplate.svelte"
+  import RedTemplate from "../../components/menu/redtemplate.svelte"
   import { uploadsUrl, fetchData } from "../../utils/api.js"
   import { theme } from "../../utils/theme.js"
 
@@ -20,17 +20,20 @@
   onMount(async () => {
     const data = await fetchData(menuslug)
     menu = data.menu;
-    const { configuracion } = menu.menus_template;
-    // template = menu.menus_template.template;
-    template = 4;
+    const { configuracion, fondo, imagenes } = menu.menus_template;
+    console.log('TEMA', menu.menus_template)
+    template = menu.menus_template.template;
+    // template = 4;
     fetch = false;
     const colors = ['green', 'red', 'yellow', 'blue', 'purple'];
     theme.updateTheme({
       color: colors[template],
       config: configuracion,
       template,
+      fondo,
+      imagenes
     });
-    console.log('CONFIG', configuracion)
+    // console.log('CONFIG', configuracion)
   });
   function getImageUrl(image) {
     return `${uploadsUrl}${image.url}`

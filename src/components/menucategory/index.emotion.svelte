@@ -15,6 +15,7 @@
     catWrapper,
     title,
     titleColumnPadding,
+    descriptionSimple,
     descColumnPadding,
     imageCatWrapp,
   } = CustomStyles($theme);
@@ -32,7 +33,7 @@
       <img alt="" src={imageurl} />
     {/if}
     <h2 class="{title} {titleColumnPadding(column)}" >{category.nombre}</h2>
-    <p class="{descColumnPadding(column)}">
+    <p class="{descriptionSimple} {descColumnPadding(column)}">
       {category.descripcion || ''}
     </p>
     {#each dishes as dish}

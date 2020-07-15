@@ -132,6 +132,9 @@ const CustomStyles = (theme) => {
       column == 0 ? 'padding-left: 3%;' : 'padding-left: 10%;'
       }
     `,
+    descriptionSimple: css`
+      color: ${color};
+    `,
     description: (side) => css`
       font-family: ${font};
       font-weight: 700;
