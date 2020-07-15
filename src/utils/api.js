@@ -67,3 +67,9 @@ export const getDishes = async (category) => {
   const { data } = await $axios.get(`/platillos?${params}`);
   return data
 }
+
+export const getDishesCount = async (category) => {
+  const params = `categorias.id=${category.id}&_limit=-1&_sort=orden:ASC`
+  const { data } = await $axios.get(`/platillos/count?${params}`);
+  return data
+}

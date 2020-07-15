@@ -1,6 +1,6 @@
 <script>
   import Logo from "./logo/index.svelte";
-  import Category from "./menucategory/index.svelte";
+  import Category from "./menucategory/index.emotion.svelte";
   import { getCategories } from "../utils/api";
   import { categoryBalancer } from "../utils/format";
   import { onMount } from "svelte";
@@ -99,6 +99,7 @@
     .menu.light-menu h1 {
       text-align: center;
     }
+
     .column {
       min-width: 30%;
       flex: 1 0 30%;
@@ -109,9 +110,7 @@
 
 <svelte:head>
   <title>{menu.nombre ? menu.nombre : ''} | Restaurantalia</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </svelte:head>
 
 <section class="menu light-menu">
