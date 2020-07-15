@@ -68,21 +68,6 @@ async function categoryBalancer(categories, numColumns = 3) {
     return Column.map(value => categories[value]);
   })
   return Columns;
-
-  //let InitialValue = []
-  //let j = AllCategories.length;
-  //let chunk = AllCategories.length / numColumns;
-  //let index = 0
-  //for (let i = 0; i < j; i += chunk) {
-  //  InitialValue.push([])
-  //  let temparray = AllCategories.slice(i, i + chunk);
-  //  temparray.forEach((value) => {
-  //    InitialValue[index].push(categories[value])
-  //  })
-  //  index++;
-  //}
-  //console.log({ InitialValue })
-  //return InitialValue;
 }
 export {
   formatDescription,
