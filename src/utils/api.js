@@ -57,13 +57,19 @@ export const fetchData = async (menuslug) => {
 
 export const getCategories = async (menu) => {
   const categoriesArray = (menu.categorias || []).sort((a, b) => {
-    return a.Orden - b.Orden
+    return a.orden - b.orden
   })
   return categoriesArray || []
 }
 
 export const getDishes = async (category) => {
-  const params = `categorias.id=${category.id}&_limit=-1`
+  const params = `categorias.id=${category.id}&_limit=-1&_sort=orden:ASC`
   const { data } = await $axios.get(`/platillos?${params}`);
+  return data
+}
+
+export const getDishesCount = async (category) => {
+  const params = `categorias.id=${category.id}&_limit=-1&_sort=orden:ASC`
+  const { data } = await $axios.get(`/platillos/count?${params}`);
   return data
 }

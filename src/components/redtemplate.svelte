@@ -2,21 +2,15 @@
   import Logo from "./logo/index.svelte";
   import Category from "./menucategory/redcategory.emotion.svelte";
   import { getCategories, getImageUrl } from "../utils/api";
+  import { categoryBalancer } from "../utils/format";
   import { onMount } from "svelte";
   export let menu;
-
+  let categories;
   let columns = [[], []];
   let fetch = true;
   onMount(async () => {
-    let categories = await getCategories(menu);
-    columns = Object.keys(categories).reduce(
-      (cols, cat, i) => {
-        const c = i % 2;
-        cols[c].push(categories[cat]);
-        return cols;
-      },
-      [[], []]
-    );
+    categories = await getCategories(menu);
+    columns = await categoryBalancer(categories, 2);
     fetch = false;
   });
 </script>

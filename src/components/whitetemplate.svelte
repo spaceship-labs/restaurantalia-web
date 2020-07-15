@@ -2,6 +2,7 @@
   import Logo from "./logo/index.svelte";
   import Category from "./menucategory/index.emotion.svelte";
   import { getCategories } from "../utils/api";
+  import { categoryBalancer } from "../utils/format";
   import { onMount } from "svelte";
   export let menu;
   let categories;
@@ -9,14 +10,7 @@
 
   onMount(async () => {
     categories = await getCategories(menu);
-    columns = Object.keys(categories).reduce(
-      (cols, cat, i) => {
-        const c = i % 2;
-        cols[c].push(categories[cat]);
-        return cols;
-      },
-      [[], []]
-    );
+    columns = await categoryBalancer(categories, 2);
   });
 </script>
 
