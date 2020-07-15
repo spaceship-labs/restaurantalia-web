@@ -116,10 +116,12 @@ const CustomStyles = (theme) => {
       margin: 0;
       margin-bottom: 15px;
       color: ${color};
+      padding-left: 15px;
       ${getExtraTitle(template)}
     `,
     titleColumnPadding: (column) => css`
-      ${column == 0 ? 'padding-left: 3%;' : 'padding-left: 10%;'}
+      padding-left: 15px;
+      ${template === 3 ? (column == 0 ? 'padding-left: 3%;' : 'padding-left: 10%;') : ''}
     `,
     titleWrapper: css`
       display: flex;
@@ -128,9 +130,8 @@ const CustomStyles = (theme) => {
       max-width: 80%;
     `,
     descColumnPadding: (column) => css`
-      ${
-      column == 0 ? 'padding-left: 3%;' : 'padding-left: 10%;'
-      }
+      padding-left: 15px;
+      ${template === 3 ? (column == 0 ? 'padding-left: 3%;' : 'padding-left: 10%;') : ''}
     `,
     descriptionSimple: css`
       color: ${color};

@@ -39,7 +39,13 @@ const getDots = (template) => {
 
 const CustomStyles = (theme) => {
   const { template, config } = theme;
-  const { dishes: { color, font, weightTitle, colorTitle } } = config;
+  const { dishes: {
+    color,
+    backgroundColor,
+    font,
+    weightTitle,
+    colorTitle }
+  } = config;
   const redMargins = {
     l: css`margin-right: 15%;`,
     r: css`margin-left: 18%;`,
@@ -67,7 +73,7 @@ const CustomStyles = (theme) => {
     `,
     container: css`
       width: 95%;
-      background-color: #340606;
+      background-color: ${backgroundColor};
       border-radius: 0.5em;
       max-width: 80%;
       padding: 5px 11%;
