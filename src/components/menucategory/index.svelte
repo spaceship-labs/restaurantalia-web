@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { getDishes, getImageUrl } from "../../utils/api";
 
-  import Dish from "../dish/index.svelte";
+  import Dish from "../dish/index.emotion.svelte";
   export let imageurl = "";
   export let imageposition = "";
   export let category;
@@ -31,6 +31,7 @@
     display: block;
     margin: 10px auto;
   }
+
   .image-position-top img,
   .image-position-top2 img {
     mask-image: url("/images/Mancha_der.png");
@@ -42,6 +43,7 @@
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
   }
+
   .image-position-left img {
     mask-image: url("/images/Mancha_izq.png");
     mask-size: contain;
@@ -50,6 +52,7 @@
     -webkit-mask-size: contain;
     -webkit-mask-repeat: no-repeat;
   }
+
   @media (min-width: 750px) AND (max-width: 1099px) {
     .image-position-top img {
       position: relative;

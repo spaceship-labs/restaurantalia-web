@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { getDishes } from "../../utils/api";
-  import Dish from "../dish/dish.svelte";
+  import Dish from "../dish/index.emotion.svelte";
 
   export let category;
   let fetch = true;
