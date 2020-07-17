@@ -2,10 +2,11 @@
   import Logo from "../logo/index.svelte";
   import Category from "../menucategory/index.emotion.svelte";
   import { getCategories } from "../../utils/api";
+  import { categoryBalancer } from "../../utils/format";
   import { onMount } from "svelte";
   export let menu;
   let categories;
-  let columns = [[], []];
+  let columns = [[], [], []];
 
   import CustomStyles from './index.styled.js';
   import { theme } from "../../utils/theme.js"
@@ -24,14 +25,7 @@
 
   onMount(async () => {
     categories = await getCategories(menu);
-    columns = Object.keys(categories).reduce(
-      (cols, cat, i) => {
-        const c = i % 3;
-        cols[c].push(categories[cat]);
-        return cols;
-      },
-      [[], [], []]
-    );
+    columns = await categoryBalancer(categories, 3);
   });
 </script>
 
