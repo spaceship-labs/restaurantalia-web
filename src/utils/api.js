@@ -39,13 +39,13 @@ export const getMenuByRestaurant = async (restaurant) => {
 }
 
 export const getCategoriesByMenu = async (menuId) => {
-  const { data } = await $axios.get(`/categorias?menu=${menuId}&_limit=-1`);
+  const { data } = await $axios.get(`/categorias?menu=${menuId}&_limit=-1&activo=true`);
 
   return data
 }
 
 export const getPlatillosByCategoria = async (category) => {
-  const params = `categorias.id=${category.id}&_limit=-1`
+  const params = `categorias.id=${category.id}&_limit=-1&activo=true`
   const { data } = await $axios.get(`/platillos?${params}`);
   return data
 }
@@ -63,13 +63,13 @@ export const getCategories = async (menu) => {
 }
 
 export const getDishes = async (category) => {
-  const params = `categorias.id=${category.id}&_limit=-1&_sort=orden:ASC`
+  const params = `categorias.id=${category.id}&_limit=-1&_sort=orden:ASC&activo=true`
   const { data } = await $axios.get(`/platillos?${params}`);
   return data
 }
 
 export const getDishesCount = async (category) => {
-  const params = `categorias.id=${category.id}&_limit=-1&_sort=orden:ASC`
+  const params = `categorias.id=${category.id}&_limit=-1&_sort=orden:ASC&activo=true`
   const { data } = await $axios.get(`/platillos/count?${params}`);
   return data
 }
