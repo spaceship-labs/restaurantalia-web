@@ -20,6 +20,7 @@
   onMount(async () => {
     const data = await fetchData(menuslug)
     menu = data.menu;
+    menu.categorias = menu.categorias.filter((c) => c.activo)
     const { configuracion, fondo, imagenes } = menu.menus_template;
     console.log('TEMA', menu.menus_template)
     template = menu.menus_template.template;
