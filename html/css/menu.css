@@ -46,8 +46,6 @@
 
 .menu-content{
   padding: 15px 25px;
-  /* column-count: 1;
-  column-rule-style: none; */
 }
 
 .menu.dark-menu .menu-content{
@@ -82,10 +80,6 @@
     padding: 30px;
     column-count: 2;
     column-gap: 20px;
-    /* display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
-    align-items: start;
-    grid-column-gap: 70px; */
   }
   .column{
     min-width: 40%;
@@ -106,8 +100,6 @@
   .menu.dark-menu .menu-content{
     column-count: 3;
     column-gap: 60px;
-    /* grid-template-columns: repeat(3, minmax(300px, 1fr));
-    grid-column-gap: 60px; */
   }
   .column{
     min-width: 30%;
@@ -119,6 +111,5 @@
 @media (min-width: 1400px){
   .menu-content{
     grid-column-gap: 200px;
-    /* column-gap: 200px; */
   }
 }
