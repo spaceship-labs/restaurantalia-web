@@ -1,28 +1,13 @@
 <script>
-  import Dish from "../dish/demo.svelte"
-  export let imageposition = ""
-  export let imageurl = ""
+  import Dish from "../dish/demo.svelte";
+  export let imageposition = "";
+  export let imageurl = "";
 </script>
-<article class="menu-category {imageposition}">
-  {#if imageurl !== "" && imageposition === "image-position-top"}
-    <img alt="" src={imageurl} />
-  {/if}
-  <h2>Appetizers</h2>
-  <Dish />
-  <Dish />
-  <Dish />
-  {#if imageurl !== "" && imageposition !== "image-position-top"}
-      <img alt="" src={imageurl} />
-    {/if}
-</article>
 
 <style>
   .menu-category {
     padding: 10px 0;
     position: relative;
-    /* -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
-  break-inside: avoid; */
   }
 
   .menu-category h2 {
@@ -35,9 +20,6 @@
     max-width: 90%;
     display: block;
     margin: 10px auto;
-    /* -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
-  break-inside: avoid; */
   }
 
   @media (min-width: 750px) AND (max-width: 1099px) {
@@ -75,3 +57,16 @@
     }
   }
 </style>
+
+<article class="menu-category {imageposition}">
+  {#if imageurl !== '' && imageposition === 'image-position-top'}
+    <img alt="" src={imageurl} />
+  {/if}
+  <h2>Appetizers</h2>
+  <Dish />
+  <Dish />
+  <Dish />
+  {#if imageurl !== '' && imageposition !== 'image-position-top'}
+    <img alt="" src={imageurl} />
+  {/if}
+</article>

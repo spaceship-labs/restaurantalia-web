@@ -8,8 +8,8 @@
   let categories;
   let columns = [[], [], []];
 
-  import CustomStyles from './index.styled.js';
-  import { theme } from "../../utils/theme.js"
+  import CustomStyles from "./index.styled.js";
+  import { theme } from "../../utils/theme.js";
   const {
     menuWrapp,
     lightMenu,
@@ -20,10 +20,9 @@
     container,
     content,
     lightContent,
-    col3,
+    col3
   } = CustomStyles($theme);
   const images = $theme.imagenes.map(img => getImageUrl(img));
-  // console.log('imagenes', images);
 
   onMount(async () => {
     categories = await getCategories(menu);
@@ -33,11 +32,13 @@
 
 <svelte:head>
   <title>{menu.nombre ? menu.nombre : ''} | Restaurantalia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
 </svelte:head>
 
 <section class="{menuWrapp} {lightMenu}">
-  <div class="{container}">
+  <div class={container}>
     <Logo logo={menu.menus_template.logo} margin="left" />
     <h1 class="{title} {titleRemoveDots} {titleBrown}">MENU</h1>
     <img class={titleImage} alt="restaurant name" src={images[0]} />

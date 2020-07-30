@@ -1,34 +1,10 @@
 <script>
-  import Category from "../components/menucategory/demo.svelte"
+  import Category from "../components/menucategory/demo.svelte";
 </script>
-<svelte:head>
-  <title>Demo | Restaurantalia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
-</svelte:head>
-
-<section class="menu dark-menu">
-  <div class="container">
-    <div class="logo">
-      <img alt="restaurant name" src="../images/logo_black.PNG" />
-    </div>
-    <h1>MENU</h1>
-    <img class="title-image" alt="restaurant name" src="../images/dish1.PNG" />
-    <div class="menu-content">
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-      <Category />
-    </div>
-  </div>
-</section>
 
 <style>
   :global(html, body, span, a, button, div, h1, h2) {
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
   }
 
   .menu {
@@ -65,8 +41,6 @@
 
   .menu-content {
     padding: 15px 25px;
-    /* column-count: 1;
-  column-rule-style: none; */
   }
 
   .menu.dark-menu .menu-content {
@@ -93,21 +67,39 @@
     .menu.dark-menu .menu-content {
       padding: 30px;
       column-count: 2;
-      /* display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
-    align-items: start;
-    grid-column-gap: 70px; */
     }
   }
 
   @media (min-width: 1100px) {
-
     .menu.dark-menu .menu-content {
       column-count: 3;
-      /* grid-template-columns: repeat(3, minmax(300px, 1fr));
-    grid-column-gap: 60px; */
     }
   }
-
- 
 </style>
+
+<svelte:head>
+  <title>Demo | Restaurantalia</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+</svelte:head>
+
+<section class="menu dark-menu">
+  <div class="container">
+    <div class="logo">
+      <img alt="restaurant name" src="../images/logo_black.PNG" />
+    </div>
+    <h1>MENU</h1>
+    <img class="title-image" alt="restaurant name" src="../images/dish1.PNG" />
+    <div class="menu-content">
+      <Category />
+      <Category />
+      <Category />
+      <Category />
+      <Category />
+      <Category />
+      <Category />
+      <Category />
+    </div>
+  </div>
+</section>

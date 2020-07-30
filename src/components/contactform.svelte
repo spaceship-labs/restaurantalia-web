@@ -1,41 +1,13 @@
 <script>
-  import { fade } from 'svelte/transition';
-  // export let visible = false
-  export let toggle
+  import { fade } from "svelte/transition";
+  export let toggle;
 </script>
-<div class="modalContainer visible" transition:fade>
-  <div on:click={toggle} class="overlay"></div>
-  <div class="content">
-    <a class="close" on:click={toggle}>X</a>
-    <form action="https://formspree.io/mzbjgvzl" method="POST">
-      <img alt="Restaurantalia" src="images/restaurantalia_logo.PNG" />
-      <p>
-        <label>Nombre:</label>
-        <input type="text" name="Nombre" />
-      </p>
-      <p>
-        <label>Restaurante:</label>
-        <input type="text" name="Restaurante" />
-      </p>
-      <p>
-        <label>Correo:</label>
-        <input type="text" name="Correo" />
-      </p>
-      <p>
-        <label>Teléfono:</label>
-        <input type="text" name="Telefono" />
-      </p>
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
-</div>
 
 <style>
   .modalContainer {
     position: fixed;
     width: 100%;
     min-height: 100%;
-    /* min-height: 600px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -83,7 +55,7 @@
   .close {
     position: absolute;
     color: #eb796e;
-    font-family: 'Amatic SC', cursive;
+    font-family: "Amatic SC", cursive;
     font-size: 2em;
     padding: 5px 20px;
     top: 5px;
@@ -96,7 +68,7 @@
   }
 
   label {
-    font-size: .8em;
+    font-size: 0.8em;
     display: block;
     color: #eb796e;
     font-weight: bold;
@@ -121,10 +93,10 @@
     border: 2px solid #eb796e;
     background-color: #eb796e;
     color: #fff;
-    transition: all .3s;
+    transition: all 0.3s;
     cursor: pointer;
     font-size: 1.5em;
-    font-family: 'Amatic SC', cursive;
+    font-family: "Amatic SC", cursive;
     font-weight: bold;
     text-transform: uppercase;
   }
@@ -141,3 +113,30 @@
     }
   }
 </style>
+
+<div class="modalContainer visible" transition:fade>
+  <div on:click={toggle} class="overlay" />
+  <div class="content">
+    <a class="close" on:click={toggle}>X</a>
+    <form action="https://formspree.io/mzbjgvzl" method="POST">
+      <img alt="Restaurantalia" src="images/restaurantalia_logo.PNG" />
+      <p>
+        <label>Nombre:</label>
+        <input type="text" name="Nombre" />
+      </p>
+      <p>
+        <label>Restaurante:</label>
+        <input type="text" name="Restaurante" />
+      </p>
+      <p>
+        <label>Correo:</label>
+        <input type="text" name="Correo" />
+      </p>
+      <p>
+        <label>Teléfono:</label>
+        <input type="text" name="Telefono" />
+      </p>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
