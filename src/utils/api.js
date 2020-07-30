@@ -7,8 +7,6 @@ const $axios = axios.create({
   }
 })
 
-// const uploadsUrl = ''//process.env.API_URL
-
 export const uploadsUrl = process.env.UPLOADS_URL
 
 export const getImageUrl = (image) => {

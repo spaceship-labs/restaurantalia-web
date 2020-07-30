@@ -1,40 +1,10 @@
 <script>
-  import Category from "../components/menucategory/demo.svelte"
+  import Category from "../components/menucategory/demo.svelte";
 </script>
-<svelte:head>
-  <title>Demo | Restaurantalia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap" rel="stylesheet">
-</svelte:head>
-
-<section class="menu light-menu">
-  <div class="container">
-    <div class="logo">
-      <img alt="restaurant name" src="../images/logo_black.PNG" />
-    </div>
-    <h1>MENU</h1>
-    <img class="title-image" alt="restaurant name" src="../images/dish1.PNG" />
-    <div class="menu-content">
-      <div class="column">
-        <Category />
-        <Category imageposition="image-position-left" imageurl="../images/dish3.PNG" />
-        <Category />
-      </div>
-      <div class="column">
-        <Category imageposition="image-position-top" imageurl="../images/dish1.PNG" />
-        <Category imageurl="../images/dish1.PNG" />
-      </div>
-      <div class="column">
-        <Category imageposition="image-position-top2" imageurl="../images/dish2.PNG" />
-        <Category />
-        <Category />
-      </div>
-    </div>
-  </div>
-</section>
 
 <style>
   :global(html, body, span, a, button, div, h1, h2) {
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
   }
 
   .menu {
@@ -49,7 +19,7 @@
 
   .light-menu {
     background-color: #fff3e2;
-    background: #fff3e2 url('../images/bg_phone.JPG') no-repeat top center;
+    background: #fff3e2 url("../images/bg_phone.JPG") no-repeat top center;
     background-size: cover;
     background-attachment: fixed;
     color: #735c4a;
@@ -84,8 +54,6 @@
 
   .menu-content {
     padding: 15px 25px;
-    /* column-count: 1;
-  column-rule-style: none; */
   }
 
   .title-image {
@@ -106,7 +74,7 @@
     }
 
     .menu.light-menu {
-      background-image: url('../images/bg_tablet.JPG');
+      background-image: url("../images/bg_tablet.JPG");
     }
 
     .menu.light-menu .menu-content {
@@ -126,7 +94,7 @@
 
   @media (min-width: 1100px) {
     .menu.light-menu {
-      background-image: url('../images/bg_desk.JPG');
+      background-image: url("../images/bg_desk.JPG");
     }
 
     .menu.light-menu .logo,
@@ -140,6 +108,43 @@
       max-width: 30%;
     }
   }
-
-  
 </style>
+
+<svelte:head>
+  <title>Demo | Restaurantalia</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+</svelte:head>
+
+<section class="menu light-menu">
+  <div class="container">
+    <div class="logo">
+      <img alt="restaurant name" src="../images/logo_black.PNG" />
+    </div>
+    <h1>MENU</h1>
+    <img class="title-image" alt="restaurant name" src="../images/dish1.PNG" />
+    <div class="menu-content">
+      <div class="column">
+        <Category />
+        <Category
+          imageposition="image-position-left"
+          imageurl="../images/dish3.PNG" />
+        <Category />
+      </div>
+      <div class="column">
+        <Category
+          imageposition="image-position-top"
+          imageurl="../images/dish1.PNG" />
+        <Category imageurl="../images/dish1.PNG" />
+      </div>
+      <div class="column">
+        <Category
+          imageposition="image-position-top2"
+          imageurl="../images/dish2.PNG" />
+        <Category />
+        <Category />
+      </div>
+    </div>
+  </div>
+</section>
